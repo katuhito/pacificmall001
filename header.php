@@ -34,26 +34,6 @@
               )
             );
             ?>
-            <!-- <ul class="menu">
-              <li class="menu-item">
-                <a class="nav-link active" href="#">ホーム</a>
-              </li>
-              <li class="menu-item">
-                <a class="nav-link" href="#">企業情報</a>
-              </li>
-              <li class="menu-item">
-                <a class="nav-link" href="#">店舗情報</a>
-              </li>
-              <li class="menu-item">
-                <a class="nav-link" href="#">地域貢献活動</a>
-              </li>
-              <li class="menu-item">
-                <a class="nav-link" href="#">ニュースリリース</a>
-              </li>
-              <li class="menu-item">
-                <a class="nav-link" href="#">お問い合わせ</a>
-              </li>
-            </ul> -->
           </nav>
           <form class="search-form" role="search" method="get" action="">
             <div class="search-box">
@@ -86,7 +66,7 @@
         <main>
           <div class="page-contents">
             <div class="page-head">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bg-page-dummy.png">
+              <?php echo get_main_image(); ?>
               <div class="wrapper">
                 <span class="page-title-en"></span>
                 <h2 class="page-title"><?php echo get_main_title(); ?></h2>
