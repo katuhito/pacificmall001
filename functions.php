@@ -27,8 +27,12 @@ function get_main_title() {
 }
 
 // 子ページを取得する関数
-function get_child_pages( $number = -1 ) {
-  $parent_id = get_the_ID();
+function get_child_pages( $number = -1, $specified_id = null ) {
+  if ( isset( $specified_id ) ):
+    $parent_id = $specified_id;
+  else:
+    $parent_id = get_the_ID();
+  endif;
   $args = array(
     'posts_per_page' => $number,
     'post_type' => 'page',
@@ -71,4 +75,21 @@ function get_main_image() {
   else:
     return '<img src="'. get_template_directory_uri(). '/assets/images/bg-page-dummy.jpg" />';
   endif;
+}
+
+// 特定の記事を抽出する関数
+function get_specific_posts( $post_type, $taxonomy = null, $term = null, $number = -1 ) {
+  $args = array(
+    'post_type' => $post_type,
+    'tax_query' => array(
+      array(
+        'taxonomy' => $taxonomy,
+        'field' => 'slug',
+        'terms' => $term,
+      ),
+    ),
+    'posts_per_page' => $number,
+  );
+  $specific_posts = new WP_Query( $args );
+  return $specific_posts;
 }
