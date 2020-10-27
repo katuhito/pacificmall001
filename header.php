@@ -35,9 +35,9 @@
             );
             ?>
           </nav>
-          <form class="search-form" role="search" method="get" action="">
+          <form class="search-form" role="search" method="get" action="<?php echo esc_url( home_url() ); ?>">
             <div class="search-box">
-              <input type="text" class="search-input" name="" placeholder="キーワードを入力してください" />
+              <input type="text" class="search-input" name="s" placeholder="キーワードを入力してください" />
               <button type="submit" class="button-submit"></button>
             </div>
             <div class="search-buttons">
@@ -73,4 +73,9 @@
               </div>
             </div>
             <div class="page-container">
-    <?php endif; ?>
+<?php
+if ( function_exists('bread_crumb') ):
+  bread_crumb();
+endif;
+?>
+<?php endif; ?>
