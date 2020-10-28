@@ -99,3 +99,42 @@ function get_specific_posts( $post_type, $taxonomy = null, $term = null, $number
   $specific_posts = new WP_Query( $args );
   return $specific_posts;
 }
+
+function cms_excerpt_more() {
+  return '...';
+}
+add_filter( 'excerpt_more', 'cms_excerpt_length' );
+
+function cms_excerpt_length() {
+  return 80;
+}
+add_filter( 'excerpt_mblength', 'cms_excerpt_more' );
+
+// 抜粋機能を固定ページに使えるように設定
+add_post_type_support( 'page', 'excerpt' );
+
+function get_flexible_excerpt( $number ) {
+  $value = get_the_excerpt();
+  $value = wp_trim_words( $value, $number, '...' );
+  return $value;
+}
+
+// get_the_excerpt()で取得する文字列に改行タグを挿入
+function apply_excerpt_br( $value ) {
+  return nl2br( $value );
+}
+add_filter( 'get_the_excerpt', 'apply_excerpt_br' );
+
+// ウィジェット機能を有効化
+function theme_widgets_init() {
+  register_sidebar( array(
+    'name' => 'サイドバーウィジェットエリア',
+    'id' => 'primary-widget-area',
+    'description' => '固定ページのサイドバー',
+    'before_widget' => '<aside class="side-inner">',
+    'after_widget' => '</aside>',
+    'before_title' => '<h4 class="title">',
+    'after_title' => '</h4>',
+  ));
+}
+add_action( 'widgets_init', 'theme_widgets_init' );
