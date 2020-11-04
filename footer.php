@@ -30,34 +30,13 @@
           )
         );
         ?>
-        <!-- <ul class="menu">
-          <li class="menu-item">
-            <a class="nav-link" href="#">企業情報</a>
-          </li>
-          <li class="menu-item">
-            <a class="nav-link" href="#">会社概要</a>
-          </li>
-          <li class="menu-item">
-            <a class="nav-link" href="#">事業紹介</a>
-          </li>
-          <li class="menu-item">
-            <a class="nav-link" href="#">沿革</a>
-          </li>
-          <li class="menu-item">
-            <a class="nav-link" href="#">店舗情報</a>
-          </li>
-          <li class="menu-item">
-            <a class="nav-link" href="#">地域貢献活動</a>
-          </li>
-          <li class="menu-item">
-            <a class="nav-link" href="#">ニュースリリース</a>
-          </li>
-          <li class="menu-item">
-            <a class="nav-link" href="#">お問い合わせ</a>
-          </li>
-        </ul> -->
       </nav>
     </div>
+    <ul class='sns-navi'>
+      <li class='twitter'><a href='https://twitter.com/5Wordpress'></a><li>
+      <li class='facebook'><a href='https:/www.facebook.com/wordpress5book'></a><li>
+      <li class='instagram'><a href='https://www.instagram.com/5wordpress'></a><li>
+    </ul>
   </div>
   <p class="copyright">
     <small class="copyright-text">&#169; 2019 PACIFIC MALL DEVELOPMENT CO.,LTD.</small>
